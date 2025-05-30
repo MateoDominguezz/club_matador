@@ -1,0 +1,72 @@
+socio
+id_socio --> Clave Primaria
+nombre
+apellido
+dni
+email
+telefono
+
+empleado
+id_empleado --> Clave Primaria
+nombre
+apellido
+dni
+email
+telefono
+
+turno
+id_turno
+descripcion
+horario_inicio
+horario_final
+
+
+puesto
+id_puesto -->Clave Primaria
+id_turno --> Clave Foranea
+descripcion
+remuneracion_puesto
+
+
+empleado_puesto
+id_empleado --> Clave Primaria
+id_puesto --> Clave Primaria
+fecha_inicio
+
+contrato
+id_contrato ------> Clave Primaria
+id_deportista -----> Clave Foranea
+descripcion
+fecha_inicio
+fecha_fin
+
+deporte
+id_deporte --> Clave Primaria
+descripcion
+
+socio_deporte
+id_deporte --> Clave Primaria
+id_socio --> Clave Primaria
+fecha_insripcion
+
+cuota
+id_cuota --> Clave Primaria
+id_socio --> Clave Foranea
+precio_mensual
+fecha_pago
+
+deportista
+id_deportista --> Clave Primaria
+id_deporte --> Clave Foranea
+nombre
+apellido
+dni
+telefono
+
+fichaje
+id_fichaje --> Clave Primaria
+id_deportista --> Clave Foranea
+id_contrato --> Clave Foranea
+fecha_fichaje
+observacion
+

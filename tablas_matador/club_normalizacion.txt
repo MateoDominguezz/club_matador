@@ -1,69 +1,70 @@
-socio
+SOCIO
 id_socio --> Clave Primaria
 nombre
 apellido
 dni
-email
-telefono
+email --> Uno solo
+telefono --> Uno solo
 
-empleado
+EMPLEADO
 id_empleado --> Clave Primaria
 nombre
 apellido
 dni
-email
-telefono
+email --> Uno solo
+telefono -- Uno solo
 
-turno
+TURNO
 id_turno
 descripcion
 horario_inicio
 horario_final
 
 
-puesto
+PUESTO
 id_puesto -->Clave Primaria
 id_turno --> Clave Foranea
 descripcion
 remuneracion_puesto
 
 
-empleado_puesto
+EMPLEADO_PUESTO
 id_empleado --> Clave Primaria
 id_puesto --> Clave Primaria
 fecha_inicio
 
-contrato
+CONTRATO
 id_contrato ------> Clave Primaria
 id_deportista -----> Clave Foranea
+id_empleado --> Clave Foranea
 descripcion
 fecha_inicio
 fecha_fin
 
-deporte
+DEPORTE
 id_deporte --> Clave Primaria
 descripcion
 
-socio_deporte
+SOCIO_DEPORTE
 id_deporte --> Clave Primaria
 id_socio --> Clave Primaria
-fecha_insripcion
+fecha_inscripcion
 
-cuota
+CUOTA
 id_cuota --> Clave Primaria
 id_socio --> Clave Foranea
 precio_mensual
 fecha_pago
 
-deportista
+DEPORTISTA
 id_deportista --> Clave Primaria
 id_deporte --> Clave Foranea
 nombre
 apellido
 dni
-telefono
+telefono --> Uno solo
 
-fichaje
+FICHAJE
 id_fichaje --> Clave Primaria
 id_deportista --> Clave Foranea
 id_contrato --> Clave Foranea

@@ -101,7 +101,7 @@ CREATE TABLE IF NOT EXISTS contrato(
     FOREIGN KEY (id_empleado) REFERENCES empleado(id_empleado)
 );
 
-DROP TABLE IF EXISTS fichaje;
+/*DROP TABLE IF EXISTS fichaje;
 CREATE TABLE IF NOT EXISTS fichaje(
 	id_fichaje INT AUTO_INCREMENT NOT NULL,
 	id_contrato INT NOT NULL,
@@ -111,7 +111,7 @@ CREATE TABLE IF NOT EXISTS fichaje(
     PRIMARY KEY (id_fichaje),
     FOREIGN KEY (id_contrato) REFERENCES contrato(id_contrato),
     FOREIGN KEY (id_deportista) REFERENCES deportista(id_deportista)
-);
+); */
 
 DROP TABLE IF EXISTS fichaje;
 DROP TABLE IF EXISTS contrato;

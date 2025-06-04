@@ -57,25 +57,33 @@ class SocioModel{
         }
     }
 
-    public function delete_socio($xdatos){
-        $aDatos = json_decode($xdatos,true);
+    public function socio_delete($xdatos){
+        $aDatos = json_decode($xdatos, true);
         $aResponse = [];
         $bd= new DataBase();
 
-        $sql = "CALL delete_socio('". $aDatos["id_socio"]. "')";
-        
         if(!$bd->getEstadoConexion()){
             $aResponse["estado"]= "ERROR";
             $aResponse["mensaje"]= $bd->getMessageError(); 
             return $aResponse;
-        } else{
-            $aResponse["estado"] = "succes";
-            $aResponse["mensaje"]="Se pudo eliminar exitosamente el socio";
-            $aResponse["datos"]=$bd->execute($sql);
-            $bd->close();
-            return $aResponse;
         }
+        
+        $sql = "CALL socio_delete('". $aDatos["id_socio"]. "')";
+        $bd->execute($sql);
+        $filasAfectadas = $bd->getAffectedRows();
+        $bd->close();
+
+        if ($filasAfectadas > 0) {
+            $aResponse["estado"] = "success";
+            $aResponse["mensaje"] = "El socio fue eliminado de manera exitosa";
+        } else {
+            $aResponse["estado"] = "ERROR";
+            $aResponse["mensaje"] = "No se encontro ningun socio con ese ID";
+        }
+
+        return $aResponse;
     }
+
     public function socio_getByID($xdatos){
         $aDatos=json_decode($xdatos,true) ; 
         $aResponse=[];

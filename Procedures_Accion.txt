@@ -1,0 +1,29 @@
+Como hacer en el postman para ver si funciona:
+socio_insert:
+{
+    "nombre": "Mateo",
+    "apellido":"Dominguez",
+    "dni": "45.620.692",
+    "email": "mateo@gmail.com",
+  "telefono": "123456789"
+}
+
+socio_getAll:
+{
+
+}
+
+socio_update:
+{
+    "id_socio": 1,
+    "nombre": "Mateo",
+    "apellido":"Dominguez",
+    "dni": "45.620.692",
+    "email": "mateodominguez83@gmail.com",
+    "telefono": "123456789"
+}
+
+socio_getByID:
+{
+    "id_socio": 2
+}

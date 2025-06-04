@@ -13,6 +13,10 @@ class DataBase{
         return $this->conexion;
     }
 
+    public function getAffectedRows() {
+        return $this->bd->affected_rows;
+    }
+
     function __construct(){
         $this->bd = new mysqli(HOST,USER,PASSWORD,BASE);
         if($this->bd->connect_errno){

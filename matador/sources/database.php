@@ -36,9 +36,11 @@ class DataBase{
     }
 
     public function execute($xsql){
-        if(!$this->bd->query($xsql))
+        if(!$this->bd->query($xsql)){
             return False;
-        return True;
+        } else {
+            return True;
+        }
     }
 
     public function close(){ 

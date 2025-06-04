@@ -1,6 +1,6 @@
 DELIMITER $$
-DROP PROCEDURE IF EXISTS socio_delete;
-CREATE PROCEDURE socio_delete(IN xid_socio INT)
+DROP PROCEDURE IF EXISTS empleado_delete;
+CREATE PROCEDURE empleado_delete(IN xid_empleado INT)
 BEGIN
 	DECLARE EXIT HANDLER FOR SQLEXCEPTION
     BEGIN
@@ -9,10 +9,9 @@ BEGIN
     END;
     
     START TRANSACTION;
-		DELETE FROM socio
-		WHERE id_socio = xid_socio;
+		DELETE FROM empleado
+		WHERE id_empleado = xid_empleado;
         
         COMMIT;
-        SELECT 'Se pudo actualizar el socio' as 'result';
 END $$
 DELIMITER ;

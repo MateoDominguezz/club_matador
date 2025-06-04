@@ -37,20 +37,20 @@ class SocioModel{
         }
     }
 
-    public function socio_update($xdatos){
+    public function socioo_update($xdatos){
         $aDatos = json_decode($xdatos,true);
         $aResponse = [];
         $bd = new DataBase();
 
-        $sql = "CALL socio_update( '". $aDatos["id_socio"]. "' , '". $aDatos["nombre"]. "' , '". $aDatos["apellido"]."', '". $aDatos["dni"]. "' , '". $aDatos["email"]."', '". $aDatos["telefono"]. "')";
+        $sql = "CALL socioo_update( '". $aDatos["id_socio"]. "' , '". $aDatos["nombre"]. "' , '". $aDatos["apellido"]."', '". $aDatos["dni"]. "' , '". $aDatos["email"]."', '". $aDatos["telefono"]. "')";
 
         if(!$bd->getEstadoConexion()){
-            $aResponse["mensaje"] ="ERROR";
-            $aResponse["estado"] = $bd->getMessageError();
+            $aResponse["estado"] ="ERROR";
+            $aResponse["mensaje"] = $bd->getMessageError();
             return $aResponse;
         } else{
-            $aResponse["mensaje"]= "success";
-            $aResponse["estado"] = "Se pudo actualizar el socio exitosamente";
+            $aResponse["estado"]= "success";
+            $aResponse["mensaje"] = "Se pudo actualizar el socio exitosamente";
             $aResponse["datos"] = $bd->execute($sql);
             $bd->close();
             return $aResponse;
@@ -68,7 +68,7 @@ class SocioModel{
             return $aResponse;
         }
         
-        $sql = "CALL socio_delete('". $aDatos["id_socio"]. "')";
+        $sql = "CALL socio_delete(". $aDatos["id_socio"]. ")";
         $bd->execute($sql);
         $filasAfectadas = $bd->getAffectedRows();
         $bd->close();

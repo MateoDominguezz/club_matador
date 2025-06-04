@@ -1,7 +1,7 @@
 DELIMITER $$
-DROP PROCEDURE IF EXISTS socio_update;
-CREATE PROCEDURE socio_update(
-IN xid_socio INT,
+DROP PROCEDURE IF EXISTS empleado_update;
+CREATE PROCEDURE empleado_update(
+IN xid_empleado INT,
 IN xnombre VARCHAR(20),
 IN xapellido VARCHAR(20),
 IN xdni VARCHAR(20),
@@ -12,18 +12,17 @@ BEGIN
 	DECLARE EXIT HANDLER FOR SQLEXCEPTION
     BEGIN
 		ROLLBACK;
-		SELECT 'No se pudo actualizar el socio' as 'result';
+		SELECT 'No se pudo actualizar el empleado' as 'result';
     END;
     
     START TRANSACTION;
-		UPDATE socio
+		UPDATE empleado
         SET nombre = xnombre,
 			apellido = xapellido,
 			dni = xdni,
 			email = xemail,
 			telefono = xtelefono
-		WHERE id_socio = xid_socio;
+		WHERE id_empleado = xid_empleado;
         COMMIT;
-        SELECT 'Se pudo actualizar el socio' as 'result';
 END $$
 DELIMITER ;

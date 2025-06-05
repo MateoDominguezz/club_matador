@@ -1,0 +1,9 @@
+DELIMITER $$
+DROP PROCEDURE IF EXISTS turno_getAll;
+CREATE PROCEDURE turno_getAll()
+BEGIN
+	SELECT *
+    FROM turno
+    ORDER BY id_turno ASC;
+END $$
+DELIMITER ;

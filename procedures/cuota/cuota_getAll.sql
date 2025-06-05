@@ -1,0 +1,9 @@
+DELIMITER $$
+DROP PROCEDURE IF EXISTS cuota_getAll;
+CREATE PROCEDURE cuota_getAll()
+BEGIN
+	SELECT *
+    FROM cuota
+    ORDER BY id_cuota ASC;
+END $$
+DELIMITER ; 

@@ -1,0 +1,9 @@
+DELIMITER $$
+DROP PROCEDURE IF EXISTS puesto_getAll;
+CREATE PROCEDURE puesto_getAll()
+BEGIN
+	SELECT *
+    FROM puesto
+    ORDER BY id_puesto ASC;
+END $$
+DELIMITER ;

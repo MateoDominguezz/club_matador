@@ -5,7 +5,7 @@ IN xid_cuota INT
 )
 BEGIN
 	SELECT *
-    FROM cupta
+    FROM cuota
     WHERE id_cuota = xid_cuota;
 END $$
 DELIMITER ;

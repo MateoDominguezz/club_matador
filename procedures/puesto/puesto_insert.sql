@@ -13,7 +13,7 @@ BEGIN
     END;
     
     START TRANSACTION;
-		INSERT INTO turno(id_turno, descripcion, fecha_inicio)
+		INSERT INTO puesto(id_turno, descripcion, remuneracion_puesto)
         VALUES (
         xid_turno,
         xdescripcion,

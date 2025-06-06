@@ -45,7 +45,7 @@ class PuestoModel{
         $aResponse = [];
         $bd = new DataBase();
 
-        $sql = "CALL puesto_insert('". $aDatos["id_puesto"]. "' ,'". $aDatos["id_turno"]. "' ,'". $aDatos["descripcion"]. "' , '". $aDatos["remuneracion_pago"]."')";
+        $sql = "CALL puesto_update('". $aDatos["id_puesto"]. "' ,'". $aDatos["id_turno"]. "' ,'". $aDatos["descripcion"]. "' , '". $aDatos["remuneracion_puesto"]."')";
 
         if(!$bd->getEstadoConexion()){
             $aResponse["estado"] ="ERROR";

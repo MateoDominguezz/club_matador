@@ -3,8 +3,8 @@ DROP PROCEDURE IF EXISTS cuota_update;
 CREATE PROCEDURE cuota_update(
 IN xid_cuota INT,
 IN xid_socio INT,
-IN precio_mensual DECIMAL(10,2),
-IN fecha_pago DATE
+IN xprecio_mensual DECIMAL(10,2),
+IN xfecha_pago DATE
 )
 BEGIN
 	DECLARE EXIT HANDLER FOR SQLEXCEPTION

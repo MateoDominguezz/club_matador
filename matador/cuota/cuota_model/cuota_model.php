@@ -22,7 +22,7 @@ class CuotaModel{
         $aDatos= json_decode($xdatos, true);
         $aResponse = [];
         $bd = new DataBase();
-        $sql= "CALL cuota_insert('". $aDatos["id_socio"]. "' ,'". $aDatos["precio_mensual"]. "' , '". $aDatos["fecha_pago"]."')";
+        $sql= "CALL cuota_insert('". $aDatos["id_socio"]. "' ,". $aDatos["precio_mensual"]. " , '". $aDatos["fecha_pago"]."')";
 
         if(!$bd->getEstadoConexion()){
             $aResponse["estado"]= "ERROR";
@@ -42,7 +42,7 @@ class CuotaModel{
         $aResponse = [];
         $bd = new DataBase();
 
-        $sql = "CALL cuota_insert('". $aDatos["id_socio"]. "' ,'". $aDatos["precio_mensual"]. "' , '". $aDatos["fecha_pago"]."')";
+        $sql = "CALL cuota_update(". $aDatos["id_cuota"]. " ,". $aDatos["id_socio"]. " ,". $aDatos["precio_mensual"]. " , '". $aDatos["fecha_pago"]."')";
 
         if(!$bd->getEstadoConexion()){
             $aResponse["estado"] ="ERROR";

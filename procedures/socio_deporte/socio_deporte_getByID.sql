@@ -6,7 +6,7 @@ IN xid_socio INT
 )
 BEGIN
 	SELECT *
-    FROM cuota
+    FROM socio_deporte
     WHERE id_deporte = xid_deporte AND id_socio = xid_socio;
 END $$
 DELIMITER ;

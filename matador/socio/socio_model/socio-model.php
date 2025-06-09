@@ -1,5 +1,7 @@
 <?php
+// Clase Socio
 class SocioModel{
+// Funcion para mostrar todos los socios
     public function socio_getAll(){
         $aResponse = [];
         $sql = "CALL socio_getAll()";
@@ -18,6 +20,7 @@ class SocioModel{
         }
     }
 
+// Funcion para insertar socio
     public function socio_insert($xdatos){
         $aDatos= json_decode($xdatos, true);
         $aResponse = [];
@@ -37,6 +40,7 @@ class SocioModel{
         }
     }
 
+// Funcion para actualizar a un socio
     public function socioo_update($xdatos){
         $aDatos = json_decode($xdatos,true);
         $aResponse = [];
@@ -57,6 +61,7 @@ class SocioModel{
         }
     }
 
+// Funcion para eliminar socio
     public function socio_delete($xdatos){
         $aDatos = json_decode($xdatos, true);
         $aResponse = [];
@@ -84,6 +89,7 @@ class SocioModel{
         return $aResponse;
     }
 
+// Funcion para obtener socio por ID
     public function socio_getByID($xdatos){
         $aDatos=json_decode($xdatos,true) ; 
         $aResponse=[];

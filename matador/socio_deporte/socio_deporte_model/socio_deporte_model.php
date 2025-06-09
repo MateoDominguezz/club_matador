@@ -1,5 +1,7 @@
 <?php
+// Clase socio con deporte
 class SocioDeporteModel{
+// Funcion para obtener todos los socios con los deportes
     public function socio_deporte_getAll(){
         $aResponse = [];
         $sql = "CALL socio_deporte_getAll()";
@@ -18,6 +20,7 @@ class SocioDeporteModel{
         }
     }
 
+// Funcion para insertar socio con el deporte
     public function socio_deporte_insert($xdatos){
         $aDatos= json_decode($xdatos, true);
         $aResponse = [];
@@ -37,6 +40,7 @@ class SocioDeporteModel{
         }
     }
 
+// Funcion para actualizar un socio con un deporte
     public function socio_deporte_update($xdatos){
         $aDatos = json_decode($xdatos,true);
         $aResponse = [];
@@ -57,6 +61,7 @@ class SocioDeporteModel{
         }
     }
 
+// Funcion para eliminar un socio con un deporte
     public function socio_deporte_delete($xdatos){
         $aDatos = json_decode($xdatos, true);
         $aResponse = [];
@@ -84,6 +89,7 @@ class SocioDeporteModel{
         return $aResponse;
     }
 
+// Funcion para encontrar socio con deporte con ID
     public function socio_deporte_getByID($xdatos){
         $aDatos=json_decode($xdatos,true) ; 
         $aResponse=[];

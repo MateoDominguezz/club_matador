@@ -1,5 +1,7 @@
 <?php
+// Clase Turno
 class TurnoModel{
+// Funcion para mostrar todos los turnos
     public function turno_getAll(){
         $aResponse = [];
         $sql = "CALL turno_getAll()";
@@ -18,6 +20,7 @@ class TurnoModel{
         }
     }
 
+// Funcion para insertar turno
     public function turno_insert($xdatos){
         $aDatos= json_decode($xdatos, true);
         $aResponse = [];
@@ -36,6 +39,7 @@ class TurnoModel{
         }
     }
 
+// Funcion para actualizar turno
     public function turno_update($xdatos){
         $aDatos = json_decode($xdatos,true);
         $aResponse = [];
@@ -56,6 +60,7 @@ class TurnoModel{
         }
     }
 
+// Funcion para eliminar turno
     public function turno_delete($xdatos){
         $aDatos = json_decode($xdatos, true);
         $aResponse = [];
@@ -83,6 +88,7 @@ class TurnoModel{
         return $aResponse;
     }
 
+// Funcion para obtener turno por ID
     public function turno_getByID($xdatos){
         $aDatos=json_decode($xdatos,true) ; 
         $aResponse=[];

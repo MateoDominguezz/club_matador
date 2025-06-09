@@ -1,5 +1,7 @@
 <?php
+// Clase Deporteista
 class DeportistaModel{
+// Funcion para mostrar todos los deportistas
     public function deportista_getAll(){
         $aResponse = [];
         $sql = "CALL deportista_getAll()";
@@ -18,6 +20,7 @@ class DeportistaModel{
         }
     }
 
+// Funcion para insertar deporte
     public function deportista_insert($xdatos){
         $aDatos= json_decode($xdatos, true);
         $aResponse = [];
@@ -37,6 +40,7 @@ class DeportistaModel{
         }
     }
 
+// Funcion para actualizar deportista
     public function deportista_update($xdatos){
         $aDatos = json_decode($xdatos,true);
         $aResponse = [];
@@ -57,6 +61,7 @@ class DeportistaModel{
         }
     }
 
+// Funcion para emliminar deportista
     public function deportista_delete($xdatos){
         $aDatos = json_decode($xdatos, true);
         $aResponse = [];
@@ -84,6 +89,7 @@ class DeportistaModel{
         return $aResponse;
     }
 
+// Funcion para obtener deportista por ID
     public function deportista_getByID($xdatos){
         $aDatos=json_decode($xdatos,true) ; 
         $aResponse=[];

@@ -1,5 +1,7 @@
 <?php
+// Se crea la clase Cuota
 class CuotaModel{
+// Funcion para obtener todas las cuotas
     public function cuota_getAll(){
         $aResponse = [];
         $sql = "CALL cuota_getAll()";
@@ -18,6 +20,7 @@ class CuotaModel{
         }
     }
 
+// Funcion para insertar cuota
     public function cuota_insert($xdatos){
         $aDatos= json_decode($xdatos, true);
         $aResponse = [];
@@ -37,6 +40,7 @@ class CuotaModel{
         }
     }
 
+// Funcion para actualizar la cuota
     public function cuota_update($xdatos){
         $aDatos = json_decode($xdatos,true);
         $aResponse = [];
@@ -57,6 +61,7 @@ class CuotaModel{
         }
     }
 
+// Funcion para eliminar la cuota
     public function cuota_delete($xdatos){
         $aDatos = json_decode($xdatos, true);
         $aResponse = [];
@@ -84,6 +89,7 @@ class CuotaModel{
         return $aResponse;
     }
 
+// Funcion para conseguir la cuota por ID
     public function cuota_getByID($xdatos){
         $aDatos=json_decode($xdatos,true) ; 
         $aResponse=[];

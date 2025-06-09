@@ -1,4 +1,5 @@
 <?php
+// Clase Empleado
 class EmpleadoModel{
 // Funcion para mostrar todos los empleado
     public function empleado_getAll(){

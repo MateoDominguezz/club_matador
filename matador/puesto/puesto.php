@@ -1,4 +1,5 @@
 <?php
+// Aca se incluye los archivos que necesita para andar la api
 include "../sources/config.php";
 include "../sources/database.php";
 include "puesto_model/puesto_model.php";

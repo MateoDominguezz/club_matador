@@ -1,4 +1,5 @@
 <?php
+// Clase de Deporte
 class DeporteModel{
 // Funcion para mostrar todos los deportes
     public function deporte_getAll(){

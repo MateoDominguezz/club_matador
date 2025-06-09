@@ -1,5 +1,7 @@
 <?php
+// Clase Empleado Puesto
 class EmpleadoPuestoModel{
+// Funcion para obtener todos los empleados con puestos
     public function empleado_puesto_getAll(){
         $aResponse = [];
         $sql = "CALL empleado_puesto_getAll()";
@@ -18,6 +20,7 @@ class EmpleadoPuestoModel{
         }
     }
 
+// Funcion para insertar el empleado con el puesto
     public function empleado_puesto_insert($xdatos){
         $aDatos= json_decode($xdatos, true);
         $aResponse = [];
@@ -37,6 +40,7 @@ class EmpleadoPuestoModel{
         }
     }
 
+// Funcion para actualizar al empleado con el puesto
     public function empleado_puesto_update($xdatos){
         $aDatos = json_decode($xdatos,true);
         $aResponse = [];
@@ -57,6 +61,7 @@ class EmpleadoPuestoModel{
         }
     }
 
+// Funcion para eliminar puesto con el empleado
     public function empleado_puesto_delete($xdatos){
         $aDatos = json_decode($xdatos, true);
         $aResponse = [];
@@ -84,6 +89,7 @@ class EmpleadoPuestoModel{
         return $aResponse;
     }
 
+// Funcion para obtener empleado con el puesto por ID
     public function empleado_puesto_getByID($xdatos){
         $aDatos=json_decode($xdatos,true) ; 
         $aResponse=[];

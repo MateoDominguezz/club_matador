@@ -1,8 +1,7 @@
 <?php
 // Aca se incluye los archivos que necesita para andar la api
-include "../sources/config.php";
-include "../sources/database.php";
-include "contrato_model/contrato_model.php";
+include "../sources/autoload.php";
+
 
 header('Access-Control-Allow-Origin: *');
 header("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method");

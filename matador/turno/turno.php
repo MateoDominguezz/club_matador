@@ -1,8 +1,6 @@
 <?php
 // Aca se incluye los archivos que necesita para andar la api
-include "../sources/config.php";
-include "../sources/database.php";
-include "turno_model/turno_model.php";
+include "../sources/include";
 
 header('Access-Control-Allow-Origin: *');
 header("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method");

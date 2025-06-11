@@ -1,8 +1,6 @@
 <?php
 // Aca se incluye los archivos que necesita para andar la api
-include "../sources/config.php";
-include "../sources/database.php";
-include "empleado_puesto_model/empleado_puesto_model.php";
+include "../sources/include.php";
 
 header('Access-Control-Allow-Origin: *');
 header("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method");

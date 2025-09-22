@@ -1,0 +1,55 @@
+body {
+    min-height: 100vh;
+    min-width: 100%;
+    background-image: url("../img/logo.png");
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+
+.navBarIcon{
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.elementoItem{
+    position: relative;
+    border: none;
+}
+
+.elementoItem::before{
+    content: "";
+    height: 2px;
+    width: 0;
+    bottom: 0;
+    position: absolute;
+    background-color: black;
+    transition: width 0.5s ease;
+}
+
+.elementoItem:hover {
+    border: none;
+}
+
+.elementoItem::after{
+    content: "";
+    height: 2px;
+    width: 0;
+    top: 0;
+    left: 0;
+    position: absolute;
+    background-color: black;
+    transition: width 0.5s ease;
+}
+
+
+.elementoItem:hover::before{
+    width: 100%;
+}
+
+.elementoItem:hover::after{
+    width: 100%;
+}

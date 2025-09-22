@@ -1,0 +1,1 @@
+const url_socio = "../../back/matador/socio/socio.php"

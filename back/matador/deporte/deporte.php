@@ -17,9 +17,6 @@ if(strcmp($_SERVER["REQUEST_METHOD"], "POST") != 0){
     exit();
 }
 
-$bdModel = new DeporteModel();
-
-
 // Tomo la url y la convierto en array
 $url = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
 $aUrl = explode("/", $url);

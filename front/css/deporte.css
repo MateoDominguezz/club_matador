@@ -1,0 +1,68 @@
+#input-buscar{
+  background-color: black;
+  color: #fff; 
+  border: 1px solid #d4d0d0; 
+    outline: none;
+}
+#input-buscar::placeholder {
+  color: #aaa; 
+}
+
+#input-buscar:focus {
+  outline: none !important;
+}
+
+#boton-buscar {
+  background-color: #000;
+  color: #fff;
+  padding: 2px;
+  border: none;
+  outline: none;
+}
+
+.contendor-boton {
+    border: 1px solid; 
+    outline: none;
+}
+
+
+
+.boton-insert{
+    position: fixed;
+    z-index: 1000;
+    bottom: 25px;
+    right: 25px;
+    font-size: 20px;
+    background-color: rgb(87, 235, 87);
+    height: 50px;
+    width: 50px;
+    color: black;
+    border-radius: 50px;
+    text-align: center;
+    box-shadow: 0 0 10px rgb(91, 161, 101);
+    transition: all 0.2s ease-in-out;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.boton-insert-a{
+    font-weight: bolder;
+    font-size: 30px;
+    color: black;
+}
+
+.boton-insert:hover{
+    transform: translateY(-1.3px);
+    box-shadow: 0 0 10px rgb(17, 192, 40);
+}
+
+.iconos{
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.1s ease-in ;
+}
+
+.iconos:hover{
+    font-size: 18px;
+}

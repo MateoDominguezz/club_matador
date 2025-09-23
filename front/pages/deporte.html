@@ -9,7 +9,7 @@
     <!-- Link Css-->
     <link rel="stylesheet" href="../css/index.css">
     <!-- Link para darle estilos al buscador y al boto de ingresar socio-->
-     <link rel="stylesheet" href="../css/styleDefault.css">
+     <link rel="stylesheet" href="../css/deporte.css">
     <!-- Link Bootstrap-->
     <link rel="stylesheet" href="../node/node_modules/bootstrap/dist/css/bootstrap.min.css">
     <!-- Script para abrir el NAV-->
@@ -87,13 +87,14 @@
           <label for="nombre_deporte" class="form-label">Nombre</label>
           <input type="text" class="form-control" id="nombre_deporte">
         </div>
+      </div>
     </div>
   </div>
 </div>
 
 <!-- BOTON PARA INGRESAR DEPORTE-->
   <div class="boton-insert" id="boton-insert-deporte">
-          <a class="boton-insert-a">
+          <a class="boton-insert-a ">
             <i class="bi bi-plus-lg"></i>
           </a>
   </div>
@@ -111,9 +112,15 @@
       <!-- Nombre-->
       <div class="modal-body">
         <div class="mb-2">
-          <label for="nombre_socio" class="form-label">Nombre</label>
-          <input type="text" class="form-control" id="nombreAddSocio">
+          <label for="nombre_deporte" class="form-label">Nombre</label>
+          <input type="text" class="form-control" id="descripcionAdddeporte">
         </div>
+      </div>
+    
+    <!-- Footer Modal-->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" id="addCambiosDeporte">Guardar</button>
       </div>
     </div>
   </div>
@@ -124,5 +131,7 @@
 
 <!-- Script para mostrar Deporte-->
     <script src="../js/deporte/deporte_getAll.js" defer></script>
+<!-- Script para añadir un deporte-->
+    <script src="../js/deporte/deporte_insert.js" defer></script>
 </body>
 </html>

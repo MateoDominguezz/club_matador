@@ -1,10 +1,10 @@
-async function deleteSocioDatos (id_socio){
-    const url = url_socio + "/socio_delete";
+async function deleteDeporteDatos (id_deporte){
+    const url = url_deporte + "/deporte_delete";
     const response = await fetch(url,{
         method: "POST",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify({
-            "id_socio": id_socio
+            "id_deporte": id_deporte
         })
     })
 
@@ -15,15 +15,15 @@ async function deleteSocioDatos (id_socio){
     return resultado;
 }
 
-async function deleteSocio(id_socio) {
-    if(!confirm("Estas seguro de eliminar al socio ?")){
+async function deleteDeporte(id_deporte) {
+    if(!confirm("Estas seguro de eliminar el deporte?")){
         return;
     }
     
     try {
-        const result = await deleteSocioDatos(id_socio);
+        const result = await deleteDeporteDatos(id_deporte);
         if(result.estado == "success"){
-            alert("Se pudo eliminar el socio " + id_socio + " de manera exitosa" );
+            alert("Se pudo eliminar el deporte " + id_deporte + " de manera exitosa" );
             MostrarSocio();
         } else {
             alert("Error al eliminar el socio" + result.mensaje);
@@ -35,4 +35,4 @@ async function deleteSocio(id_socio) {
     }
 }
 
-document.addEventListener("DOMContentLoaded", MostrarSocio())
+document.addEventListener("DOMContentLoaded", MostrarDeporte)

@@ -37,7 +37,7 @@ async function MostrarSocio() {
                data-dni = "${socio.dni}"
                data-email = "${socio.email}"
                data-telefono = "${socio.telefono}"
-               onclick="abrirModal(this)"
+               onclick="abrirModalEditSocio(this)"
                >
             </i>
         </td>

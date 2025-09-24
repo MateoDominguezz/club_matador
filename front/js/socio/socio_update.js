@@ -1,7 +1,7 @@
 var modalEditarSocio = new bootstrap.Modal(document.getElementById("modalEditarSocio"));
 
 
-function abrirModal (e){
+function abrirModalEditSocio(e){
     const id_socio = e.getAttribute("data-id");
     const nombre = e.getAttribute("data-nombre");
     const apellido = e.getAttribute("data-apellido");

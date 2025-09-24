@@ -31,13 +31,13 @@ async function MostrarDeporte() {
             <i class="bi bi-pencil text-warning iconos"
                data-id="${deporte.id_deporte}" 
                data-nombre="${deporte.descripcion}" 
-               onclick="abrirModal(this)"
+               onclick="abrirModalAddDeporte(this)"
                >
             </i>
         </td>
         <td>
             <i class="bi bi-trash text-danger iconos" 
-               onclick="deleteDeporte(${deporte.id_deporte})">
+            onclick="deleteDeporte(${deporte.id_deporte})"
             </i>
         </td>
         `;

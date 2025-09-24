@@ -42,7 +42,7 @@ async function socio_printById(id) {
                data-dni = "${socio.dni}"
                data-email = "${socio.email}"
                data-telefono = "${socio.telefono}"
-               onclick="abrirModal(this)"
+               onclick="abrirModalSocio(this)"
                >
             </i>
         </td>

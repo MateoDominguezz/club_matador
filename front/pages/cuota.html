@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Deporte</title>
+    <title>Cuota</title>
     <!--Iconos-->
   <link rel="stylesheet" href="../node/node_modules/bootstrap/bootstrap-icons-1.3.0/bootstrap-icons.css">
     <!-- Link Css-->
@@ -33,7 +33,7 @@
         <a class="nav-link" href="#">Empleados</a>
       </li>
       <li class="nav-item elementoItem">
-        <a class="nav-link" href="#">Deportes</a>
+        <a class="nav-link" href="deporte.html">Deportes</a>
       </li>
       <li class="nav-item elementoItem">
         <a class="nav-link" href="#">Deportista</a>
@@ -48,69 +48,85 @@
   </div>
 </nav>
 
- <!-- BUSCAR Deporte -->
+ <!-- Buscar Cuota -->
   <div class=" d-flex justify-content-center">
     <div class="input-group w-50 mt-3 d-flex justify-content-center">
       <span class="input-group-text bg-black"><i class="bi bi-search" id="boton-buscar"></i></span>
-      <input type="search" class="form-control" placeholder="Buscar por ID" id="input-buscar-deporte">
+      <input type="search" class="form-control" placeholder="Buscar por ID" id="input-buscar-cuota">
     </div>
   </div>
 
-    <!-- TABLAS DE Deporte-->
+    <!-- Tabla de cuota-->
     <div class="table-responsive rounded overflow-hidden p-3">
         <table class="table table-dark table-hover rounded">
             <thead>
                 <tr class="fs-6">
-                <th scope="col">ID</th>
-                <th scope="col">Nombre Deporte</th>
-                <th scope="col">Editar</th>
-                <th scope="col">Eliminar</th>
+                <th scope="col">Id_Cuota</th>
+                <th scope="col">Id Socio</th>
+                <th scope="col">Precio Mes</th>
+                <th scope="col">Fecha de pago</th>
             </tr>
         </thead>
-            <tbody id="table_container_deporte">
+            <tbody id="table_container_cuota">
             </tbody>
         </table>
     </div>
 
-<!-- MODAL PARA EDITAR DEPORTE-->
-<div class="modal fade" id="modalEditarDeporte" tabindex="-1">
+<!-- MODAL PARA EDITAR CUOTA-->
+<div class="modal fade" id="modalEditarCuota" tabindex="-1">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Editar Deporte</h5>
+        <h5 class="modal-title">Editar Cuota</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
       </div>
-      <!-- Nombre-->
+      <!-- Id Socio-->
       <div class="modal-body">
-        <input type="hidden" id="id_deporte">
+        <input type="hidden" id="id_socio">
         <div class="mb-3">
-          <label for="nombre_deporte" class="form-label">Nombre</label>
-          <input type="text" class="form-control" id="nombre_deporte">
+          <label for="id_socio" class="form-label">Id Socio</label>
+          <input type="text" class="form-control" id="id_socio">
+        </div>
+      </div>
+      <!-- Presio Mensual-->
+      <div class="modal-body">
+        <input type="hidden" id="precio_mesual">
+        <div class="mb-3">
+          <label for="precio_mesual" class="form-label">Precio por Mes</label>
+          <input type="text" class="form-control" id="precio_mesual">
+        </div>
+      </div>
+      <!-- Fecha Pago-->
+      <div class="modal-body">
+        <input type="hidden" id="fecha_pago">
+        <div class="mb-3">
+          <label for="fecha_pago" class="form-label">Fecha de Pago</label>
+          <input type="text" class="form-control" id="fecha_pago">
         </div>
       </div>
       <!-- Footer Modal-->
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-primary" id="guardarCambiosDeporte">Guardar</button>
+        <button type="button" class="btn btn-primary" id="guardarCambiosCuota">Guardar</button>
       </div>
     </div>
   </div>
 </div>
 
-<!-- BOTON PARA INGRESAR DEPORTE-->
-  <div class="boton-insert" id="boton-insert-deporte">
+<!-- BOTON PARA INGRESAR CUOTA-->
+  <div class="boton-insert" id="boton-insert-cuota">
           <a class="boton-insert-a ">
             <i class="bi bi-plus-lg"></i>
           </a>
   </div>
 
-
-<!-- MODAL PARA INGRESAR DEPORTE-->
-<div class="modal fade" id="modalAgregarDeporte" tabindex="-1">
+                    <!-- HASTA ACA LLEGUE-->
+<!-- MODAL PARA INGRESAR CUOTA-->
+<div class="modal fade" id="modalAgregarCuota" tabindex="-1">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Ingresar Deporte</h5>
+        <h5 class="modal-title">Ingresar Cuota</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
       </div>
 
@@ -135,14 +151,6 @@
     <script src="../js/app.js" defer></script>
 
 <!-- Script para mostrar Deporte-->
-    <script src="../js/deporte/deporte_getAll.js" defer></script>
-<!-- Script para añadir un deporte-->
-    <script src="../js/deporte/deporte_insert.js" defer></script>
-<!-- Script para eliminar un deporte-->
-    <script src="../js/deporte/deporte_delete.js" defer></script>
-<!-- Script para editar un deporte-->
-    <script src="../js/deporte/deporte_update.js" defer></script>
-<!-- Script para buscar deporte-->
-    <script src="../js/deporte/deporte_getById.js"></script>
+
 </body>
 </html>

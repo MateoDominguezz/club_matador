@@ -4,7 +4,10 @@ class CuotaModel{
 // Funcion para obtener todas las cuotas
     public function cuota_getAll(){
         $aResponse = [];
-        $sql = "CALL cuota_getAll()";
+        $sql = "SELECT c.id_cuota , s.id_socio , s.nombre , c.precio_mensual , c.fecha_pago
+                FROM socio AS s, cuota AS c
+                WHERE c.id_socio = s.id_socio";
+
         $bd = new DataBase(); 
 
         if(!$bd->getEstadoConexion()){

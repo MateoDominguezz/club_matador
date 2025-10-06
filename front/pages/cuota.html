@@ -63,8 +63,11 @@
                 <tr class="fs-6">
                 <th scope="col">Id_Cuota</th>
                 <th scope="col">Id Socio</th>
+                <th scope="col">Nombre</th>
                 <th scope="col">Precio Mes</th>
                 <th scope="col">Fecha de pago</th>
+                <th scope="col">Editar</th>
+                <th scope="col">Borrar</th>
             </tr>
         </thead>
             <tbody id="table_container_cuota">
@@ -84,7 +87,7 @@
       <div class="modal-body">
         <input type="hidden" id="id_socio">
         <div class="mb-3">
-          <label for="id_socio" class="form-label">Id Socio</label>
+          <label for="id_cuota" class="form-label">Id Socio</label>
           <input type="text" class="form-control" id="id_socio">
         </div>
       </div>
@@ -120,7 +123,7 @@
           </a>
   </div>
 
-                    <!-- HASTA ACA LLEGUE-->
+
 <!-- MODAL PARA INGRESAR CUOTA-->
 <div class="modal fade" id="modalAgregarCuota" tabindex="-1">
   <div class="modal-dialog">
@@ -130,13 +133,29 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
       </div>
 
-      <!-- Nombre-->
+      <!-- Id Socio-->
       <div class="modal-body">
         <div class="mb-2">
-          <label for="nombre_deporte" class="form-label">Nombre</label>
-          <input type="text" class="form-control" id="descripcionAdddeporte">
+          <section  id="sectionIdSocioCuota">Id_socio</section>
         </div>
       </div>
+
+      <!-- Precio Mensual-->
+      <div class="modal-body">
+        <div class="mb-2">
+          <label for="precio_mesual" class="form-label">Precio Mensual</label>
+          <input type="text" class="form-control" id="precioMensualAddCuota">
+        </div>
+      </div>            
+
+      <!-- Fecha Pago-->
+      <div class="modal-body">
+        <div class="mb-2">
+          <label for="fecha_pago" class="form-label">Fecha Pago</label>
+          <input type="text" class="form-control" id="fechaPagoAddCuota">
+        </div>
+      </div>
+    
     
     <!-- Footer Modal-->
       <div class="modal-footer">
@@ -150,7 +169,8 @@
 <!-- Script para la URL -->
     <script src="../js/app.js" defer></script>
 
-<!-- Script para mostrar Deporte-->
+<!-- Script de cuota-->
+  <script src="../js/cuota/script_cuota.js"></script>
 
 </body>
 </html>

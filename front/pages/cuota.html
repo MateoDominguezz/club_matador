@@ -61,8 +61,8 @@
         <table class="table table-dark table-hover rounded">
             <thead>
                 <tr class="fs-6">
-                <th scope="col">Id_Cuota</th>
-                <th scope="col">Id Socio</th>
+                <th scope="col">IdCuota</th>
+                <th scope="col">IdSocio</th>
                 <th scope="col">Nombre</th>
                 <th scope="col">Precio Mes</th>
                 <th scope="col">Fecha de pago</th>
@@ -83,28 +83,23 @@
         <h5 class="modal-title">Editar Cuota</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
       </div>
-      <!-- Id Socio-->
-      <div class="modal-body">
-        <input type="hidden" id="id_socio">
-        <div class="mb-3">
-          <label for="id_cuota" class="form-label">Id Socio</label>
-          <input type="text" class="form-control" id="id_socio">
-        </div>
-      </div>
+      <!-- Id Cuota-->
+       <input type="hidden" id="idCuotaEdit">
+
       <!-- Presio Mensual-->
       <div class="modal-body">
-        <input type="hidden" id="precio_mesual">
+        <input type="hidden" id="precioMensualEditCuota">
         <div class="mb-3">
           <label for="precio_mesual" class="form-label">Precio por Mes</label>
-          <input type="text" class="form-control" id="precio_mesual">
+          <input type="text" class="form-control" id="precioMensualEditCuota">
         </div>
       </div>
       <!-- Fecha Pago-->
       <div class="modal-body">
-        <input type="hidden" id="fecha_pago">
+        <input type="hidden" id="fechaPagoEditCuota">
         <div class="mb-3">
           <label for="fecha_pago" class="form-label">Fecha de Pago</label>
-          <input type="text" class="form-control" id="fecha_pago">
+          <input type="text" class="form-control" id="fechaPagoEditCuota">
         </div>
       </div>
       <!-- Footer Modal-->
@@ -136,7 +131,8 @@
       <!-- Id Socio-->
       <div class="modal-body">
         <div class="mb-2">
-          <section  id="sectionIdSocioCuota">Id_socio</section>
+          <label for="idSocioAddCuota" class="form-label">Id Socio</label>
+          <select class="form-select" id="idSocioAddCuota"> </select>
         </div>
       </div>
 
@@ -144,7 +140,7 @@
       <div class="modal-body">
         <div class="mb-2">
           <label for="precio_mesual" class="form-label">Precio Mensual</label>
-          <input type="text" class="form-control" id="precioMensualAddCuota">
+          <input type="number" class="form-control" id="precioMensualAddCuota">
         </div>
       </div>            
 
@@ -152,7 +148,7 @@
       <div class="modal-body">
         <div class="mb-2">
           <label for="fecha_pago" class="form-label">Fecha Pago</label>
-          <input type="text" class="form-control" id="fechaPagoAddCuota">
+          <input type="date" class="form-control" id="fechaPagoAddCuota">
         </div>
       </div>
     
@@ -160,7 +156,7 @@
     <!-- Footer Modal-->
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-primary" id="addCambiosDeporte">Guardar</button>
+        <button type="button" class="btn btn-primary" id="addCambiosCuota">Guardar</button>
       </div>
     </div>
   </div>

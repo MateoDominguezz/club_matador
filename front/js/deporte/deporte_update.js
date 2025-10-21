@@ -1,9 +1,7 @@
 var modalEditarDeporte = new bootstrap.Modal(document.getElementById("modalEditarDeporte"));
 
- document.addEventListener("click", (e) => {
-   if (e.target.classList.contains("bi-pencil")) {
-     abrirModalAddDeporte(e.target);
-   }
+ document.addEventListener("click", () => {
+     abrirModalAddDeporte();
  });
 
 

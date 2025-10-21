@@ -42,10 +42,11 @@ async function insertDeporte () {
         let dato = await addDeporte(descripcion);
         modalAgregarDeporte.hide();
         alert(dato.mensaje);
+        MostrarDeporte();
     } catch (error) {
         console.log("Error: ", error)
         alert(error);
     }
 }
 
-document.getElementById("addCambiosDeporte").addEventListener("click", insertDeporte)
+document.getElementById("addCambiosDeporte").addEventListener("click", insertDeporte);

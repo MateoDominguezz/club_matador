@@ -1,0 +1,10 @@
+<!-- Script para mostrar Socio -->
+    <script src="../js/socio/socio_getAll.js" defer></script>
+<!-- Script para actualizar Socio-->
+    <script src="../js/socio/socio_update.js" defer></script>
+<!-- Script para eliminar Socio-->
+    <script src="../js/socio/socio_delete.js" defer></script>
+<!-- Script para agregar socio-->
+    <script src="../js/socio/socio_insert.js" defer></script>
+<!-- Script para bucsar socio por ID-->
+  <script src="../js/socio/socio_getById.js"></script>

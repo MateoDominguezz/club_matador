@@ -148,10 +148,9 @@ function abrirModalUpdateCuota(e) {
 
     modalEditarCuota.show();
 }
-
 //Funcion para llamar al procedure de actualizar cuota
-async function updateCuota(id_cuota,id_socio, fecha_pago, precio_mensual){
-    const url = url_cuota + "/cuota_update";
+async function updateCuota(id_cuota, id_socio, fecha_pago, precio_mensual){
+    const url = url_cuota + "/cuota_update"; // Asegúrate que la ruta coincida
     const response = await fetch(url, {
         method: 'POST',
         headers: { "Content-Type": "application/json" },
@@ -170,13 +169,17 @@ async function updateCuota(id_cuota,id_socio, fecha_pago, precio_mensual){
 }
 
 async function ActualizarCuota(){
-    const id_cuota =document.getElementById("idCuotaEdit").value;
+    // Obtener todos los valores
+    const id_cuota = document.getElementById("idCuotaEdit").value;
     const id_socio = document.getElementById("idSocioEditCuota").value;
-    const precio = document.getElementById("precioMensualEditCuota").value = precio;
-    const fecha = document.getElementById("fechaPagoEditCuota").value = fecha;
+    const precio = document.getElementById("precioMensualEditCuota").value;
+    const fecha = document.getElementById("fechaPagoEditCuota").value;
+
+    console.log("Datos obtenidos:", { id_cuota, id_socio, precio, fecha });
 
     try {
-        const resultado = await updateCuota(id_cuota,id_socio,precio,fecha)
+        const resultado = await updateCuota(id_cuota, id_socio, fecha, precio);
+        
         if(resultado.estado == "success"){
             alert(resultado.mensaje);
             modalEditarCuota.hide();
@@ -190,5 +193,33 @@ async function ActualizarCuota(){
     }
 }
 
+
+// ----------------------------------- DELETE --------------------------------------------------
+
+//Funcion para eliminar cuota
+async function deleteCuota(id_cuota){
+    const url = url_cuota + "/cuota_delete";
+    const response = await fetch(url, {
+        method: 'POST',
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+            "id_cuota": id_cuota
+        })
+    });
+    if(!response.ok) {
+        throw new Error("Error en la llamada a la API");
+    }
+    const resultado = await response.json();
+    if(resultado.estado == "success"){
+        alert(resultado.mensaje);
+        MostrarCuota();
+    } else {
+        alert("Error al eliminar la cuota: " + resultado.mensaje);
+    }
+}
+
 // Mostrar las cuotas al cargar la pagina
 document.addEventListener("DOMContentLoaded", MostrarCuota);
+
+
+document.getElementById("guardarCambiosCuota").addEventListener("click", ActualizarCuota);

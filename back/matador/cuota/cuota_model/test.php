@@ -1,3 +1,4 @@
+<?php
 
 <?php
 // Se crea la clase Cuota
@@ -7,7 +8,7 @@ class CuotaModel{
         $aResponse = [];
         $sql = "SELECT c.id_cuota , s.id_socio , s.nombre , c.precio_mensual , c.fecha_pago
                 FROM socio AS s, cuota AS c
-                WHERE c.id_socio = s.id_socio AND c.estado = 1";
+                WHERE c.id_socio = s.id_socio AND s.estado = 1";
 
         $bd = new DataBase(); 
 
@@ -80,9 +81,7 @@ class CuotaModel{
             return $aResponse;
         }
         
-        $sql = "UPDATE cuota 
-                SET estado = 0 
-                WHERE id_cuota = " . $aDatos["id_cuota"];
+        $sql = "CALL cuota_delete(". $aDatos["id_cuota"]. ")";
         $bd->execute($sql);
         $filasAfectadas = $bd->getAffectedRows();
         $bd->close();

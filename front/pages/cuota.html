@@ -52,7 +52,7 @@
   <div class=" d-flex justify-content-center">
     <div class="input-group w-50 mt-3 d-flex justify-content-center">
       <span class="input-group-text bg-black"><i class="bi bi-search" id="boton-buscar"></i></span>
-      <input type="search" class="form-control" placeholder="Buscar por ID" id="input-buscar-cuota">
+      <input type="search" class="form-control" placeholder="Buscar por IdCuota" id="input-buscar-cuota">
     </div>
   </div>
 
@@ -83,29 +83,29 @@
         <h5 class="modal-title">Editar Cuota</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
       </div>
-      <!-- Id Cuota-->
-       <input type="hidden" id="idCuotaEdit">
-
-      <!-- Presio Mensual-->
+      
+      <!-- Campos ocultos para IDs -->
+      <input type="hidden" id="idCuotaEdit">
+      <input type="hidden" id="idSocioEditCuota">
+      
       <div class="modal-body">
-        <input type="hidden" id="precioMensualEditCuota">
+        <!-- Precio Mensual -->
         <div class="mb-3">
-          <label for="precio_mesual" class="form-label">Precio por Mes</label>
+          <label for="precioMensualEditCuota" class="form-label">Precio por Mes</label>
           <input type="text" class="form-control" id="precioMensualEditCuota">
         </div>
-      </div>
-      <!-- Fecha Pago-->
-      <div class="modal-body">
-        <input type="hidden" id="fechaPagoEditCuota">
+        
+        <!-- Fecha Pago -->
         <div class="mb-3">
-          <label for="fecha_pago" class="form-label">Fecha de Pago</label>
+          <label for="fechaPagoEditCuota" class="form-label">Fecha de Pago</label>
           <input type="text" class="form-control" id="fechaPagoEditCuota">
         </div>
       </div>
+      
       <!-- Footer Modal-->
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-primary" id="guardarCambiosCuota">Guardar</button>
+        <button type="button" class="btn btn-primary" id="guardarCambiosCuota" >Guardar</button>
       </div>
     </div>
   </div>

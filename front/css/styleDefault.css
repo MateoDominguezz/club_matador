@@ -1,18 +1,18 @@
-#input-buscar{
+.input-buscar{
   background-color: black;
   color: #fff; 
   border: 1px solid #d4d0d0; 
     outline: none;
 }
-#input-buscar::placeholder {
-  color: #aaa; 
+.input-buscar::placeholder {
+  color: #aaa !important;
 }
 
-#input-buscar:focus {
+.input-buscar:focus {
   outline: none !important;
 }
 
-#boton-buscar {
+.boton-buscar {
   background-color: #000;
   color: #fff;
   padding: 2px;

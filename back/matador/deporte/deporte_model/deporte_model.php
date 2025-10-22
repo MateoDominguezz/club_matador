@@ -85,7 +85,7 @@ class DeporteModel{
             $aResponse["mensaje"]= $bd->getMessageError();
             return $aResponse;
         }else{
-            $aResponse["estado"]="succes";
+            $aResponse["estado"]="success";
             $aResponse["mensaje"]="Se pudo actualizar el deporte de manera exitosa";
             $aResponse["datos"]= $bd->execute($sql);
             $bd->close();

@@ -175,8 +175,6 @@ async function ActualizarCuota(){
     const precio = document.getElementById("precioMensualEditCuota").value;
     const fecha = document.getElementById("fechaPagoEditCuota").value;
 
-    console.log("Datos obtenidos:", { id_cuota, id_socio, precio, fecha });
-
     try {
         const resultado = await updateCuota(id_cuota, id_socio, fecha, precio);
         
@@ -193,6 +191,115 @@ async function ActualizarCuota(){
     }
 }
 
+// ------------------------------------ GetById ----------------------------------
+async function get_cuota(id){
+    const url = url_cuota + "/cuota_getById";
+    const response = await fetch(url, {
+        method: "POST",
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            id_cuota: id, 
+        })
+    });
+
+    if(!response.ok){
+        throw new Error("Fallo en la solicitud");
+    }
+    const resultado = await response.json();
+    return resultado;
+}
+
+async function obtenerSocioPorId(id_socio){
+    try {
+        const resultado = await get_socio(id_socio);
+        if (resultado.estado === "success" && resultado.datos.length > 0) {
+            return resultado.datos[0];
+        }
+    } catch (error) {
+        console.error("Error al obtener el socio:", error);
+    }
+}
+
+
+async function get_socio(id_socio){
+    const url = url_socio + "/socio_getByID";
+    const response = await fetch(url, {
+        method: "POST",
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            id_socio: id_socio, 
+        })
+    });
+
+    if(!response.ok){
+        throw new Error("Fallo en la solicitud");
+    }
+    const resultado = await response.json();
+    return resultado;
+}
+
+
+async function cuota_printById(id) {
+    const tbody = document.getElementById("table_container_cuota");
+    const response = await get_cuota(id);
+    const datos = response.datos;         
+
+    tbody.innerHTML = "";
+
+    if (datos && datos.length > 0) {
+        const cuota = datos[0];
+        
+        let nombreSocio = "";
+        try {
+            const socio = await obtenerSocioPorId(cuota.id_socio);
+            nombreSocio = socio.nombre;
+        } catch (error) {
+            nombreSocio = "Error";
+        }
+
+        const tr = document.createElement("tr");
+        tr.classList.add("fs-md");
+
+        tr.innerHTML = ` 
+        <th scope="row">${cuota.id_cuota}</th>
+        <td>${cuota.id_socio}</td>
+        <td>${nombreSocio}</td> 
+        <td>${cuota.precio_mensual}$</td>
+        <td>${cuota.fecha_pago}</td>
+        <td>
+            <i class="bi bi-pencil text-warning iconos"
+               data-idCuota="${cuota.id_cuota}"
+               data-idSocio="${cuota.id_socio}"
+               data-nombre="${nombreSocio}" 
+               data-precio="${cuota.precio_mensual}"
+               data-fecha="${cuota.fecha_pago}"
+               onclick="abrirModalUpdateCuota(this)"
+               >
+            </i>
+        </td>
+        <td>
+            <i class="bi bi-trash text-danger iconos" 
+            onclick="deleteCuota(${cuota.id_cuota})"
+            ></i>
+        </td>
+        `;
+
+        tbody.appendChild(tr);
+    } else {
+        tbody.innerHTML = `<tr class="fs-md"><td colspan="8">No se encontro ningun resultado</td></tr>`;
+    }
+}
+
+document.getElementById("input-buscar-cuota").addEventListener("keyup", async (e) => {
+    //Target: Sirve para llamar al evento html, que genero este evento
+    // Con el .trim elimina espacios en blanco
+    const id = e.target.value.trim();
+    if (id) {
+        await cuota_printById(id);
+    } else {
+        await MostrarCuota();
+    }
+});
 
 // ----------------------------------- DELETE --------------------------------------------------
 

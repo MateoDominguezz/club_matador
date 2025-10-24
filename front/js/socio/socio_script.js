@@ -89,7 +89,7 @@ document.getElementById("boton-insert-socio").addEventListener("click", () => {
 })
 
 // Funcion para guardar los cambios del socio
-document.getElementById("addCambiosSocio").addEventListener("click", async () => {
+async function addSocio (){
     const nombre = document.getElementById("nombreAddSocio").value;
     const apellido = document.getElementById("apellidoAddSocio").value;
     const dni = document.getElementById("dniAddSocio").value;
@@ -108,7 +108,9 @@ document.getElementById("addCambiosSocio").addEventListener("click", async () =>
     } catch (error) {
         alert("Hubo un error al insertar la cuota");
     }
-});
+}
+
+document.getElementById("addCambiosSocio").addEventListener("click", addSocio);
 
 
 // ------------------------------------------------- GetById -------------------------------------------------
@@ -246,6 +248,44 @@ async function ActualizarSocio(){
     }
 }
 document.getElementById("guardarCambios").addEventListener("click", ActualizarSocio)
+
+// ------------------------------------------------ Delete -------------------------------------------------
+async function deleteSocioDatos(id_socio){
+    const url = url_socio + "/socio_delete";
+    const response = await fetch(url,{
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({
+            "id_socio": id_socio
+        })
+    })
+
+    if(!response.ok){
+        throw new Error ("Fallo en la conexion");
+    }
+    const resultado = await response.json()
+    return resultado;
+}
+
+async function deleteSocio(id_socio) {
+    if(!confirm("Estas seguro de eliminar el socio?")){
+        return;
+    }
+    
+    try {
+        const result = await deleteSocioDatos(id_socio);
+        if(result.estado == "success"){
+            alert("Se pudo eliminar el socio " + id_socio + " de manera exitosa" );
+            MostrarSocio();
+        } else {
+            alert("Error al eliminar el socio" + result.mensaje);
+        }
+    }
+    catch(error){
+        console.log(error);
+        alert("Error de conexion");
+    }
+}
 
 
 // Mostrar los socios al cargar la pagina

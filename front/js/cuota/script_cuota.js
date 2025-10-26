@@ -209,18 +209,6 @@ async function get_cuota(id){
     return resultado;
 }
 
-async function obtenerSocioPorId(id_socio){
-    try {
-        const resultado = await get_socio(id_socio);
-        if (resultado.estado === "success" && resultado.datos.length > 0) {
-            return resultado.datos[0];
-        }
-    } catch (error) {
-        console.error("Error al obtener el socio:", error);
-    }
-}
-
-
 async function get_socio(id_socio){
     const url = url_socio + "/socio_getByID";
     const response = await fetch(url, {
@@ -236,6 +224,17 @@ async function get_socio(id_socio){
     }
     const resultado = await response.json();
     return resultado;
+}
+
+async function obtenerSocioPorId(id_socio){
+    try {
+        const resultado = await get_socio(id_socio);
+        if (resultado.estado === "success" && resultado.datos.length > 0) {
+            return resultado.datos[0];
+        }
+    } catch (error) {
+        console.error("Error al obtener el socio:", error);
+    }
 }
 
 
@@ -254,7 +253,7 @@ async function cuota_printById(id) {
             const socio = await obtenerSocioPorId(cuota.id_socio);
             nombreSocio = socio.nombre;
         } catch (error) {
-            nombreSocio = "Error";
+            throw new Error("Error al obtener el nombre del socio");
         }
 
         const tr = document.createElement("tr");
@@ -290,16 +289,16 @@ async function cuota_printById(id) {
     }
 }
 
-document.getElementById("input-buscar-cuota").addEventListener("keyup", async (e) => {
-    //Target: Sirve para llamar al evento html, que genero este evento
-    // Con el .trim elimina espacios en blanco
+async function MostrarCuotaId(e){
     const id = e.target.value.trim();
     if (id) {
         await cuota_printById(id);
     } else {
         await MostrarCuota();
     }
-});
+};
+
+document.getElementById("input-buscar-cuota").addEventListener("keyup",MostrarCuotaId);
 
 // ----------------------------------- DELETE --------------------------------------------------
 

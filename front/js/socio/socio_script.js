@@ -174,16 +174,15 @@ async function socio_printById(id) {
     }
 }
 
-document.getElementById("input-buscar-socio").addEventListener("keyup", async (e) => {
-    //Target: Sirve para llamar al evento html, que genero este evento
-    // Con el .trim elimina espacios en blanco
+async function MostrarSocioId(e) {
     const id = e.target.value.trim();
     if (id) {
         await socio_printById(id);
     } else {
         await MostrarSocio();
     }
-});
+};
+document.getElementById("input-buscar-socio").addEventListener("keyup",MostrarSocioId);
 
 // ------------------------------------------------ Update -------------------------------------------------
 var modalEditarSocio = new bootstrap.Modal(document.getElementById("modalEditarSocio"));

@@ -6,7 +6,9 @@ class DeporteModel{
         $aResponse = [];
         $bd = new DataBase();
 
-        $sql = "CALL deporte_getAll()";
+        $sql = "SELECT id_deporte, descripcion 
+                FROM deporte 
+                WHERE estado = 1";
 
         if(!$bd->getEstadoConexion()){
             $aResponse["estado"]="ERROR";
@@ -104,7 +106,10 @@ class DeporteModel{
             $aResponse["mensaje"]= $bd->getMessageError();
         }
 
-        $sql = "CALL deporte_delete(".$aDatos["id_deporte"].")";
+        $sql = "UPDATE deporte 
+                SET estado = 0 
+                WHERE id_deporte = " . $aDatos["id_deporte"];
+                
         $bd->execute($sql);
         $filasAfectadas = $bd->getAffectedRows();
         $bd->close();

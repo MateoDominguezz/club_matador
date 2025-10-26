@@ -245,15 +245,16 @@ async function deporte_printById(id) {
     }
 }
 
-document.getElementById("input-buscar-deporte").addEventListener("keyup", async (e) => {
-    //Target: Sirve para llamar al evento html, que genero este evento
-    // Con el .trim elimina espacios en blanco
+async function MostrarDeporteId(e){
     const id = e.target.value.trim();
     if (id) {
         await deporte_printById(id);
-    } else {
+    }
+    else {
         await MostrarDeporte();
     }
-});
+};
+
+document.getElementById("input-buscar-deporte").addEventListener("keyup", MostrarDeporteId);
 
 document.addEventListener("DOMContentLoaded", MostrarDeporte);

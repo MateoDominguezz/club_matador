@@ -44,7 +44,7 @@ async function MostrarCuota(){
         </td>
         <td>
             <i class="bi bi-trash text-danger iconos" 
-            onclick="deleteCuota(${cuota.id_cuota})"
+            onclick="eliminarCuota(${cuota.id_cuota})"
             ></i>
         </td>
         `;
@@ -101,6 +101,9 @@ async function verSociosEnModal(){
 // Funcion de configuracion del modal de agregar cuota
 const modalAgregarCuota = new bootstrap.Modal(document.getElementById("modalAgregarCuota"));
 function addAbrirModalCuota() {
+    document.getElementById("idSocioAddCuota").value = "";
+    document.getElementById("fechaPagoAddCuota").value = "";
+    document.getElementById("precioMensualAddCuota").value = "";    
     modalAgregarCuota.show();
 }
 
@@ -110,8 +113,7 @@ document.getElementById("boton-insert-cuota").addEventListener("click", () => {
     addAbrirModalCuota();
 })
 
-// Funcion para guardar los cambios al agregar cuota
-document.getElementById("addCambiosCuota").addEventListener("click", async () => {
+async function addCuota(){
     const id_socio = document.getElementById("idSocioAddCuota").value;
     const fecha_pago = document.getElementById("fechaPagoAddCuota").value;
     const precio_mensual = document.getElementById("precioMensualAddCuota").value;
@@ -127,7 +129,9 @@ document.getElementById("addCambiosCuota").addEventListener("click", async () =>
     } catch (error) {
         alert("Hubo un error al insertar la cuota");
     }
-});
+}
+// Funcion para guardar los cambios al agregar cuota
+document.getElementById("addCambiosCuota").addEventListener("click", addCuota);
 
 // ---------------------------------------- UPDATE ------------------------------------------------
 
@@ -278,7 +282,7 @@ async function cuota_printById(id) {
         </td>
         <td>
             <i class="bi bi-trash text-danger iconos" 
-            onclick="deleteCuota(${cuota.id_cuota})"
+            onclick="eliminarCuota(${cuota.id_cuota})"
             ></i>
         </td>
         `;
@@ -321,6 +325,23 @@ async function deleteCuota(id_cuota){
         MostrarCuota();
     } else {
         alert("Error al eliminar la cuota: " + resultado.mensaje);
+    }
+}
+
+async function eliminarCuota(id_cuota){
+    if(!confirm("Deseas eliminar la cuota")){
+        return;
+    }
+    try{
+        const cuota = await deleteCuota(id_cuota);
+         if(result.estado == "success"){
+            alert("Se pudo eliminar la cuota " + id_cuota + " de manera exitosa" );
+            MostrarCuota();
+        } else {
+            alert("Error al eliminar la cuota" + result.mensaje);
+        }
+    } catch(error){
+        return "Este es el error" + error;
     }
 }
 

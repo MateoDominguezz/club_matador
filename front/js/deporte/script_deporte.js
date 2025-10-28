@@ -142,6 +142,7 @@ async function deleteDeporte(id_deporte) {
 const modalAgregarDeporte = new bootstrap.Modal(document.getElementById("modalAgregarDeporte"));
 
 function addAbrirModal() {
+    document.getElementById("descripcionAdddeporte").value = "";
     modalAgregarDeporte.show();
 }
 
@@ -152,7 +153,7 @@ document.getElementById("boton-insert-deporte").addEventListener("click", () => 
 
 
 async function addDeporte(descripcion) {
-    url = "../../back/matador/deporte/deporte.php/deporte_insert";
+    url = url_deporte + "/deporte_insert";
     response = await fetch (url , {
         headers: {"Content-Type": "application/json"},
         method: "POST",
@@ -171,8 +172,7 @@ async function addDeporte(descripcion) {
 
 async function insertDeporte () {
     // Nombre
-    let inputDescripcion = document.getElementById("descripcionAdddeporte"); 
-    let descripcion = inputDescripcion.value.trim();
+    let descripcion = document.getElementById("descripcionAdddeporte").value.trim();
 
     if(descripcion === ""){
         alert("Los campos no puede estar vacio")

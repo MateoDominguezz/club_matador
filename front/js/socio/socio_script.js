@@ -81,6 +81,11 @@ async function insertSocio(nombre,apellido,dni, email,telefono) {
 // Funcion de configuracion del modal de agregar socio
 const modalAgregarSocio = new bootstrap.Modal(document.getElementById("modalAgregarSocio"));
 function addAbrirModalSocio() {
+    document.getElementById("nombreAddSocio").value = "";
+    document.getElementById("apellidoAddSocio").value = ""; 
+    document.getElementById("dniAddSocio").value = "";
+    document.getElementById("emailAddSocio").value = "";
+    document.getElementById("telefonoAddSocio").value = "";
     modalAgregarSocio.show();
 }
 // Funcion para ver el modal de agregar socio
